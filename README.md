@@ -24,10 +24,11 @@ Extend the deployment workshop to run a docker deployment process.
 ### File IO
 
 You want to create a container for a legacy application. You succeed, but you need access to a file that the legacy app creates.
+'fileio'is our image name.
 
 * Firstly, build a new docker image
 ```
-docker build -t <image_name> .
+docker build -t fileio .
 ```
 
 * Use socat to map file access to read file container and expose over port 9001 
