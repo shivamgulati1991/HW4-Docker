@@ -1,0 +1,16 @@
+  proxy:
+    build: ./proxy
+    links: 
+      - redis 
+    ports:
+      - 50102:3002
+  hw3: 
+    build: ./HW3
+    links: 
+      - redis
+    ports:
+      - 50101:3000
+  redis:
+    image: redis
+    ports: 
+      - 50105:6379
