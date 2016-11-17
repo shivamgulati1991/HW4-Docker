@@ -14,7 +14,8 @@ You are ready to launch your cat photo startup company. Use docker compose to se
 ### Docker Deploy 
 
 Extend the deployment workshop to run a docker deployment process.
-The post-recieve hook has been added to green image. Similar commands can be added for blue image. On seeing changes in repository and when user pushes as below
+The post-recieve hook has been added to green image. All the commands are together in hook file.
+Similar commands can be added for blue image. On seeing changes in repository and when user pushes as below
  ```
  git push green master
  ```
