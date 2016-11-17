@@ -14,17 +14,39 @@ You are ready to launch your cat photo startup company. Use docker compose to se
 ### Docker Deploy 
 
 Extend the deployment workshop to run a docker deployment process.
+The post-recieve hook has been added to green image. Similar commands can be added for blue image. On seeing changes in repository and when user pushes as below
+ ```
+ git push green master
+ ```
 
 * On post-receive will build a new docker image.
-* Push to local registery.
-* Deploy the dockerized [simple node.js App](https://github.com/CSC-DevOps/App). Add appropriate hook commands to pull from registery, stop, and restart containers.
 
-![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Screens/2.gif)
+```
+sudo docker build -t "newgreenimage" /home/shivam/Deployment/deploy/green-www/
+sudo docker tag newgreenimage localhost:5000/newgreenimage:latest
+```
+
+* Push to local registery.
+```
+sudo docker push localhost:5000/newgreenimage:latest
+```
+
+* Deploy the dockerized [simple node.js App](https://github.com/CSC-DevOps/App). Add appropriate hook commands to pull from registery, stop, and restart containers.
+```
+sudo docker pull localhost:5000/newgreenimage:latest
+sudo docker stop green
+sudo docker rm green
+
+#run the new image at 3005
+sudo docker run -td --name green -p 3005:8080 newgreenimage sh -c "node /src/main.js 8080"
+```
+
+![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/FileIO/2.gif)
 
 ### File IO
 
 You want to create a container for a legacy application. You succeed, but you need access to a file that the legacy app creates.
-'fileio'is our image name.
+'fileio' is our image name.
 
 * Firstly, build a new docker image
 ```
