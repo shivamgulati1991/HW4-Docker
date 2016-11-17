@@ -4,12 +4,28 @@
 
 You are ready to launch your cat photo startup company. Use docker compose to setup your HW3 app in the following way:
 
+Make sure you have docker and docker-compose installed in your system.
+
 * Setup a container for redis.
+
+Setup the image file and add reference to the docker-compose.yml file.
+
 * Setup a container for proxy.
+
+Setup the image file and add reference to the docker-compose.yml file.
+
 * Setup a container for node app.
+
+Setup the image file and add reference to the docker-compose.yml file.
+
+Now, run the docker compose command to run the docker-compose.yml file as
+```
+docker-compose up
+```
+
 * Modify infrastructure.js to spawn new containers instead of new servers.
 
-![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Screens/1.gif)
+![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Compose/1.gif)
 
 ### Docker Deploy 
 
