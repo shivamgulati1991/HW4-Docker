@@ -42,7 +42,7 @@ sudo docker rm green
 sudo docker run -td --name green -p 3005:8080 newgreenimage sh -c "node /src/main.js 8080"
 ```
 
-![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/FileIO/2.gif)
+![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Deploy/2.gif)
 
 ### File IO
 
