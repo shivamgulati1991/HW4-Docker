@@ -1,0 +1,18 @@
+FROM        ubuntu:14.04
+
+# Install node dependencies
+RUN     sudo apt-get update
+RUN 	sudo apt-get install -y nodejs
+RUN     sudo apt-get install -y npm
+RUN 	sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+# Bundle app source
+COPY . /src1
+
+# Install app dependencies
+RUN cd /src1; npm install
+RUN  echo $PATH
+#RUN  node /src1/proxy.js
+
+EXPOSE  8080
+CMD ["node", "/src1/proxy.js"]
