@@ -1,0 +1,14 @@
+#!/bin/sh
+
+GIT_WORK_TREE=/home/shivam/Deployment/deploy/blue-www/ git checkout -f
+
+#build a new blue image
+sudo docker build -t "newblueimage" /home/shivam/Deployment/deploy/blue-www/
+sudo docker tag newblueimage localhost:5000/newblueimage:latest
+sudo docker push localhost:5000/newblueimage:latest
+sudo docker pull localhost:5000/newblueimage:latest
+sudo docker stop blue
+sudo docker rm blue
+
+#run the new image at 3005
+sudo docker run -td --name blue -p 3004:8080 newblueimage sh -c "node /src/main.js 8080"
