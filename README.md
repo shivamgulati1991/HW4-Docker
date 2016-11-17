@@ -31,13 +31,32 @@ docker build -t <image_name> .
 ```
 
 * Use socat to map file access to read file container and expose over port 9001 
+Lets create a file 'fileiotest.txt' and write some sample content.
+```
+sudo docker run -td --name server fileio
+sudo docker exec -td server sh -c "echo 'This is test file. Hey'>/fileiotest.txt"
+sudo docker exec -it server bash
 
 ```
-sudo docker run -td --name server test
 
-
+Now once you are inside the container, type in the below command:
+```
+socat tcp-l:9001,reuseaddr,fork system:'cat /fileiotest.txt',nofork
 ```
 
 * Use a linked container that access that file over network. The linked container can just use a command such as curl to access data from other container.
 
-![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Screens/3.gif)
+Open another terminal, and to link a container use the below commands:
+```
+sudo docker run -td --name client -h client --link server:server fileio
+sudo docker exec -it client bash
+```
+
+Now you would be inside the container, lets call the curl command to see the text we wrote earlier:
+```
+curl server:9001
+```
+
+You should be able to see the file contents in the terminal now.
+
+![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/FileIO/3.gif)
