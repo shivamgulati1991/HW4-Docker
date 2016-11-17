@@ -1,0 +1,14 @@
+#!/bin/sh
+
+GIT_WORK_TREE=/home/shivam/Deployment/deploy/green-www/ git checkout -f
+
+#build a new green image
+sudo docker build -t "newgreenimage" /home/shivam/Deployment/deploy/green-www/
+sudo docker tag newgreenimage localhost:5000/newgreenimage:latest
+sudo docker push localhost:5000/newgreenimage:latest
+sudo docker pull localhost:5000/newgreenimage:latest
+sudo docker stop green
+sudo docker rm green
+
+#run the new image at 3005
+sudo docker run -td --name green -p 3005:8080 newgreenimage sh -c "node /src/main.js 8080"
