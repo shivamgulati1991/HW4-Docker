@@ -33,11 +33,11 @@ In a browser, go to the URL where infrastructure file is running and run spawn
 ```
 localhost:<port>\spawn
 ```
-The terminal will show a message that a server is being spawned and the same can be checked from docker images.
+The terminal will show a message that a container is being spawned and the same can be checked from docker images.
 ```
 docker ps -a
 ```
-This will show the IP address of the spawned server and the same can be visited by URL.
+This will show the IP address of the spawned container and the same can be visited by URL.
 
 ![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Compose/1.gif)
 
