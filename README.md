@@ -7,23 +7,38 @@ You are ready to launch your cat photo startup company. Use docker compose to se
 Make sure you have docker and docker-compose installed in your system.
 
 * Setup a container for redis.
-
-Setup the image file and add reference to the docker-compose.yml file.
-
 * Setup a container for proxy.
-
-Setup the image file and add reference to the docker-compose.yml file.
-
 * Setup a container for node app.
 
-Setup the image file and add reference to the docker-compose.yml file.
+For all the containers, Setup the image file and add reference to the docker-compose.yml file.
 
-Now, run the docker compose command to run the docker-compose.yml file as
+The docker-compose will have references for build paths, ports, etc. Now, run the docker compose command to run the docker-compose.yml file as
 ```
 docker-compose up
 ```
 
+The app can be run as
+```
+localhost:<port>
+```
+The application will display the welcome message if it works.
+
 * Modify infrastructure.js to spawn new containers instead of new servers.
+
+Now open a terminal, go to the homework location and run the infrastructure file
+```
+node infrastructure.js
+```
+
+In a browser, go to the URL where infrastructure file is running and run spawn
+```
+localhost:<port>\spawn
+```
+The terminal will show a message that a server is being spawned and the same can be checked from docker images.
+```
+docker ps -a
+``
+This will show the IP address of the spawned server and the same can be visited by URL.
 
 ![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Compose/1.gif)
 
