@@ -37,7 +37,7 @@ localhost:<port>\spawn
 The terminal will show a message that a server is being spawned and the same can be checked from docker images.
 ```
 docker ps -a
-``
+```
 This will show the IP address of the spawned server and the same can be visited by URL.
 
 ![Screencast](https://github.com/shivamgulati1991/HW4-Docker/blob/master/Compose/1.gif)
@@ -68,7 +68,6 @@ sudo docker push localhost:5000/newgreenimage:latest
 sudo docker pull localhost:5000/newgreenimage:latest
 sudo docker stop green
 sudo docker rm green
-
 #run the new image at 3005
 sudo docker run -td --name green -p 3005:8080 newgreenimage sh -c "node /src/main.js 8080"
 ```
