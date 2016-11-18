@@ -16,8 +16,7 @@ The docker-compose will have references for build paths, ports, etc. Now, run th
 ```
 docker-compose up
 ```
-
-The app can be run as
+The app can be run in the browser as
 ```
 localhost:<port>
 ```
